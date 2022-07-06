@@ -4,3 +4,9 @@ spring:
     url: jdbc:postgresql://localhost:5432/weather
     username: postgres
     password: 123456
+
+config:
+  urlOpenWeather: https://api.openweathermap.org/data/2.5/weather
+  urlMeteoBlue: https://my.meteoblue.com/packages/current?apikey=
+  tokenOWA: 5b9bcf19850e94e87b31de74b84b79cf
+  tokenMeteo: wqkh9TiABrS0GLfn

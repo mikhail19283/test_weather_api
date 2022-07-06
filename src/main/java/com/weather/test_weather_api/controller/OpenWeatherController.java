@@ -1,8 +1,9 @@
 package com.weather.test_weather_api.controller;
 
-import com.weather.test_weather_api.dto.City;
+import com.weather.test_weather_api.dto.CityDto;
 import com.weather.test_weather_api.dto.WeatherDto;
 import com.weather.test_weather_api.service.WeatherService;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -26,8 +27,9 @@ public class OpenWeatherController {
     }
 
     @PostMapping(value = "/city")
-    public ResponseEntity<Void> addCity(@RequestBody City city){
-        return weatherService.searchCoordinate(city.getCity());
+    public ResponseEntity<Void> addCity(@RequestBody CityDto city){
+        weatherService.searchCoordinate(city.getCity());
+        return new ResponseEntity<>(HttpStatus.OK);
     }
 
 }

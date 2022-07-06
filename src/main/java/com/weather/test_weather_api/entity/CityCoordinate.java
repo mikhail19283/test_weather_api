@@ -3,7 +3,6 @@ package com.weather.test_weather_api.entity;
 import javax.persistence.*;
 
 @Entity
-@Table(name = "city_coordinate")
 public class CityCoordinate {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
