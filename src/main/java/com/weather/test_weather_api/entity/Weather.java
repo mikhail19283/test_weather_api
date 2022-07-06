@@ -12,6 +12,8 @@ public class Weather {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
+
+
     private String city;
     private Double temperature;
     private Timestamp date;

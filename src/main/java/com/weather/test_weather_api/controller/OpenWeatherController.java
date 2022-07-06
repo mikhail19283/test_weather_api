@@ -1,8 +1,13 @@
 package com.weather.test_weather_api.controller;
 
+import com.weather.test_weather_api.dto.City;
+import com.weather.test_weather_api.dto.WeatherDto;
 import com.weather.test_weather_api.service.WeatherService;
 import org.springframework.http.MediaType;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
 
 @RestController
 @RequestMapping(value = "/api/v1", produces = MediaType.APPLICATION_JSON_VALUE)
@@ -16,8 +21,13 @@ public class OpenWeatherController {
 
 
     @GetMapping(value = "/weather")
-    public String getTempByCity(@RequestParam String city){
+    public List<WeatherDto> getTempByCity(@RequestParam String city){
         return weatherService.getMethod(city);
+    }
+
+    @PostMapping(value = "/city")
+    public ResponseEntity<Void> addCity(@RequestBody City city){
+        return weatherService.searchCoordinate(city.getCity());
     }
 
 }
