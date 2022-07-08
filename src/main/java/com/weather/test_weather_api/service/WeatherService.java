@@ -7,7 +7,6 @@ import com.weather.test_weather_api.entity.Weather;
 import com.weather.test_weather_api.repository.CityCoordinateRepository;
 import com.weather.test_weather_api.repository.WeatherRepository;
 import org.springframework.http.HttpStatus;
-import org.springframework.scheduling.annotation.EnableScheduling;
 import org.springframework.stereotype.Service;
 import org.springframework.web.server.ResponseStatusException;
 
@@ -16,7 +15,6 @@ import java.util.List;
 
 
 @Service
-@EnableScheduling
 public class WeatherService {
 
 

@@ -1,8 +1,6 @@
 package com.weather.test_weather_api.dto;
 
-import java.io.Serializable;
-
-public class OpenWeatherResponseDto implements Serializable {
+public class OpenWeatherResponseDto {
 
     private Main main;
 

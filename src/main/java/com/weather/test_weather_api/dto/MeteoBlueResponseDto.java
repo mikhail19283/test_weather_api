@@ -2,9 +2,7 @@ package com.weather.test_weather_api.dto;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 
-import java.io.Serializable;
-
-public class MeteoBlueResponseDto implements Serializable {
+public class MeteoBlueResponseDto {
 
     @JsonProperty("data_current")
     private Main dataCurrent;
