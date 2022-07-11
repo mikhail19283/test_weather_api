@@ -1,6 +1,6 @@
 package com.weather.test_weather_api.service;
 
-import com.weather.test_weather_api.connector.CoordinateConnectorImpl;
+import com.weather.test_weather_api.connector.coordinate.CoordinateConnectorImpl;
 import com.weather.test_weather_api.dto.WeatherDto;
 import com.weather.test_weather_api.entity.CityCoordinate;
 import com.weather.test_weather_api.entity.Weather;

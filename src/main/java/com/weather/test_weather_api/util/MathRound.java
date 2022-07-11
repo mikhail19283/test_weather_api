@@ -1,4 +1,4 @@
-package com.weather.test_weather_api.config;
+package com.weather.test_weather_api.util;
 
 public class MathRound {
 

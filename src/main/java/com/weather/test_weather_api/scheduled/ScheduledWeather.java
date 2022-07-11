@@ -1,12 +1,12 @@
 package com.weather.test_weather_api.scheduled;
 
-import com.weather.test_weather_api.config.MathRound;
+import com.weather.test_weather_api.util.MathRound;
 import com.weather.test_weather_api.entity.CityCoordinate;
 import com.weather.test_weather_api.entity.Weather;
 import com.weather.test_weather_api.repository.CityCoordinateRepository;
 import com.weather.test_weather_api.repository.WeatherRepository;
-import com.weather.test_weather_api.connector.MeteoBlueConnectorImpl;
-import com.weather.test_weather_api.connector.OpenWeatherConnectorImpl;
+import com.weather.test_weather_api.connector.weather.MeteoBlueConnectorImpl;
+import com.weather.test_weather_api.connector.weather.OpenWeatherConnectorImpl;
 import org.springframework.scheduling.annotation.EnableScheduling;
 import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Component;

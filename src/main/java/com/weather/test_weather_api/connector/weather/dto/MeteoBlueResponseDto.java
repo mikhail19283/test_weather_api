@@ -1,4 +1,4 @@
-package com.weather.test_weather_api.dto;
+package com.weather.test_weather_api.connector.weather.dto;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 

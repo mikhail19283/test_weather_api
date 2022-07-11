@@ -1,6 +1,6 @@
-package com.weather.test_weather_api.connector;
+package com.weather.test_weather_api.connector.weather;
 
-import com.weather.test_weather_api.dto.OpenWeatherResponseDto;
+import com.weather.test_weather_api.connector.weather.dto.OpenWeatherResponseDto;
 import com.weather.test_weather_api.entity.CityCoordinate;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.HttpStatus;

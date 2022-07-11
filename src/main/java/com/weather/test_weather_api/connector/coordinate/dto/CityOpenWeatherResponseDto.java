@@ -1,4 +1,4 @@
-package com.weather.test_weather_api.dto;
+package com.weather.test_weather_api.connector.coordinate.dto;
 
 public class CityOpenWeatherResponseDto {
 

@@ -1,4 +1,4 @@
-package com.weather.test_weather_api.connector;
+package com.weather.test_weather_api.connector.coordinate;
 
 import com.weather.test_weather_api.entity.CityCoordinate;
 
