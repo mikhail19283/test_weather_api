@@ -4,6 +4,7 @@ import com.weather.test_weather_api.connector.coordinate.CoordinateConnector;
 import com.weather.test_weather_api.dto.WeatherDto;
 import com.weather.test_weather_api.entity.CityCoordinate;
 import com.weather.test_weather_api.entity.Weather;
+import com.weather.test_weather_api.exception.CityException;
 import com.weather.test_weather_api.exception.CityNotFoundException;
 import com.weather.test_weather_api.repository.CityCoordinateRepository;
 import com.weather.test_weather_api.repository.WeatherRepository;
@@ -29,15 +30,13 @@ public class WeatherService {
     public List<WeatherDto> getListWeatherDto(String city) {
         List<Weather> weather = weatherRepository.findByCityOrderByDate(city.toUpperCase());
         if (weather.size() == 0) {
-            throw new CityNotFoundException("Город в базе не найден");
+            throw new CityNotFoundException();
         }
         return weather.stream().map(w -> new WeatherDto(w.getCity(), w.getTemperature(), w.getDate())).collect(Collectors.toList());
     }
 
     public void addCityToCityCoordinate(String city) {
-        if  (cityCoordinateRepository.findByCity(city).isPresent()){
-            throw new CityNotFoundException("Город уже есть в базе");
-        }
+        cityCoordinateRepository.findByCity(city).orElseThrow(CityException::new);
         CityCoordinate cityCoordinate = coordinateConnector.request(city);
         cityCoordinateRepository.save(cityCoordinate);
     }

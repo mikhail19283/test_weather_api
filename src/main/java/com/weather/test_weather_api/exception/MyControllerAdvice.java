@@ -11,8 +11,15 @@ public class MyControllerAdvice {
 
     @ExceptionHandler(CityNotFoundException.class)
     public ResponseEntity<ExceptionResponseDto> handleException(CityNotFoundException e) {
-        ExceptionResponseDto response = new ExceptionResponseDto(e.getMessage(), "404");
+        ExceptionResponseDto response = new ExceptionResponseDto("Город не найден", "404");
         return new ResponseEntity<>(response, HttpStatus.OK);
     }
+
+    @ExceptionHandler(CityException.class)
+    public ResponseEntity<ExceptionResponseDto> handleException(CityException e) {
+        ExceptionResponseDto response = new ExceptionResponseDto("Город есть в базе", "404");
+        return new ResponseEntity<>(response, HttpStatus.OK);
+    }
+
 
 }
