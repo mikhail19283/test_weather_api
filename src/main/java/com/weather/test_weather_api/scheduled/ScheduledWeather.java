@@ -10,7 +10,7 @@ import org.springframework.scheduling.annotation.EnableScheduling;
 import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Component;
 
-import java.sql.Timestamp;
+import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.TimeUnit;
@@ -46,10 +46,8 @@ public class ScheduledWeather {
             Double openWeatherTemp = openWeatherConnector.request(cityCoordinate);
             Double yandexWeatherTemp = yandexWeatherConnector.request(cityCoordinate);
             var mean = (openWeatherTemp + yandexWeatherTemp) / 2;
-            System.out.println(yandexWeatherTemp);
-            Timestamp timestamp = new Timestamp(System.currentTimeMillis());
 
-            weatherRepository.save(new Weather(cityCoordinate.getCity(), MathRound.round(mean, 2), timestamp));
+            weatherRepository.save(new Weather(cityCoordinate.getCity(), MathRound.round(mean, 2), LocalDateTime.now()));
         }
     }
 }

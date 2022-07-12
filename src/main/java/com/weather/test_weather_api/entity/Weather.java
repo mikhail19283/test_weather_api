@@ -4,7 +4,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import java.sql.Timestamp;
+import java.time.LocalDateTime;
 
 @Entity
 public class Weather {
@@ -16,12 +16,12 @@ public class Weather {
 
     private String city;
     private Double temperature;
-    private Timestamp date;
+    private LocalDateTime date;
 
     public Weather() {
     }
 
-    public Weather(String city, Double temperature, Timestamp date) {
+    public Weather(String city, Double temperature, LocalDateTime date) {
         this.city = city;
         this.temperature = temperature;
         this.date = date;
@@ -39,7 +39,7 @@ public class Weather {
         return temperature;
     }
 
-    public Timestamp getDate() {
+    public LocalDateTime getDate() {
         return date;
     }
 }
