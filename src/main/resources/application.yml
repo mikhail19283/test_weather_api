@@ -7,6 +7,6 @@ spring:
 
 config:
   urlOpenWeather: https://api.openweathermap.org/data/2.5/weather
-  urlMeteoBlue: https://my.meteoblue.com/packages/current?apikey=
   tokenOWA: 5b9bcf19850e94e87b31de74b84b79cf
-  tokenMeteo: wqkh9TiABrS0GLfn
+  urlYandexWeather: https://api.weather.yandex.ru/v2/informers
+  tokenYandexWeather: f4d203f8-5dae-4a42-bbe2-7544f176e20c

@@ -1,14 +1,14 @@
 package com.weather.test_weather_api.dto;
 
-import java.sql.Timestamp;
+import java.time.LocalDateTime;
 
 public class WeatherDto {
 
-    private String city;
-    private Double temperature;
-    private Timestamp date;
+    private final String city;
+    private final Double temperature;
+    private final LocalDateTime date;
 
-    public WeatherDto(String city, Double temperature, Timestamp date) {
+    public WeatherDto(String city, Double temperature, LocalDateTime date) {
         this.city = city;
         this.temperature = temperature;
         this.date = date;
@@ -22,7 +22,7 @@ public class WeatherDto {
         return temperature;
     }
 
-    public Timestamp getDate() {
+    public LocalDateTime getDate() {
         return date;
     }
 }

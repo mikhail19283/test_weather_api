@@ -3,9 +3,7 @@ package com.weather.test_weather_api.controller;
 import com.weather.test_weather_api.dto.CityDto;
 import com.weather.test_weather_api.dto.WeatherDto;
 import com.weather.test_weather_api.service.WeatherService;
-import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
-import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -23,13 +21,12 @@ public class OpenWeatherController {
 
     @GetMapping(value = "/weather")
     public List<WeatherDto> getTempByCity(@RequestParam String city){
-        return weatherService.getMethod(city);
+        return weatherService.getListWeatherDto(city);
     }
 
     @PostMapping(value = "/city")
-    public ResponseEntity<Void> addCity(@RequestBody CityDto city){
-        weatherService.searchCoordinate(city.getCity());
-        return new ResponseEntity<>(HttpStatus.OK);
+    public void addCity(@RequestBody CityDto city){
+        weatherService.addCityToCityCoordinate(city.getCity());
     }
 
 }
