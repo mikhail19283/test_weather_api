@@ -15,7 +15,7 @@ public class CityCoordinate {
     }
 
     public CityCoordinate(String city, Double lat, Double lon) {
-        this.city = city;
+        this.city = city.toUpperCase();
         this.lat = lat;
         this.lon = lon;
     }

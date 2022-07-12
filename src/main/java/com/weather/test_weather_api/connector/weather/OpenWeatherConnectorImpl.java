@@ -25,7 +25,7 @@ public class OpenWeatherConnectorImpl implements WeatherConnector {
 
     @Override
     public Double request(CityCoordinate cityCoordinate) {
-        String fullUrl = url + "?lat=" + cityCoordinate.getLat() + "&lon=" + cityCoordinate.getLon() + "&appid=" + token;
+        String fullUrl = url + "?lat=" + cityCoordinate.getLat() + "&lon=" + cityCoordinate.getLon() + "&appid=" + token + "&units=metric";
         OpenWeatherResponseDto openWeather = restTemplate.getForObject(fullUrl, OpenWeatherResponseDto.class);
         if (openWeather == null) {
             throw new ResponseStatusException(HttpStatus.BAD_REQUEST);

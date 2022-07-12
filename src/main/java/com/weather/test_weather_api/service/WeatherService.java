@@ -10,13 +10,12 @@ import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
 import org.springframework.web.server.ResponseStatusException;
 
-import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
 
 
 @Service
 public class WeatherService {
-
 
     private final WeatherRepository weatherRepository;
     private final CityCoordinateRepository cityCoordinateRepository;
@@ -28,27 +27,17 @@ public class WeatherService {
         this.coordinateConnector = coordinateConnector;
     }
 
-    public List<WeatherDto> getMethod(String city) {
+    public List<WeatherDto> getListWeatherDto(String city) {
         List<Weather> weather = weatherRepository.findByCityOrderByDate(city);
-        List<WeatherDto> weatherDtos = new ArrayList<>();
-        if (weather != null) {
-            for (Weather w : weather){
-                weatherDtos.add(new WeatherDto(w.getCity(), w.getTemperature(), w.getDate()));
-            }
-        } else {
-            throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "Город в базе не найден");
-        }
-        return weatherDtos;
+        return weather.stream().map(WeatherDto::new).collect(Collectors.toList());
     }
 
-
-    public void searchCoordinate(String city) {
+    public void addCityToCityCoordinate(String city) {
         if  (cityCoordinateRepository.findByCity(city).isPresent()){
             throw new ResponseStatusException(HttpStatus.BAD_REQUEST);
         }
         CityCoordinate cityCoordinate = coordinateConnector.request(city);
         cityCoordinateRepository.save(cityCoordinate);
     }
-
 
 }
